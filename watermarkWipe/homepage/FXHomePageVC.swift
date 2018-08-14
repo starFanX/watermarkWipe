@@ -7,29 +7,183 @@
 //
 
 import UIKit
-
-class FXHomePageVC: UIViewController {
-
+import SnapKit
+import RxSwift
+import RxCocoa
+public let bottomHeight:CGFloat = 100
+class FXHomePageVC: FXBaseVC,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+    var image: UIImage = UIImage()
+    var padding: CGFloat = 10
+    var imageInfo:(CGFloat,CGFloat,CGFloat,CGFloat,CGFloat,CGFloat) = (1,1,1,1,1,1);
+    lazy var backGroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        return imageView
+    }()
+    lazy var addPicBtn: UIButton = {
+        let but = UIButton()
+        but.setTitleColor(UIColor.black, for: .normal)
+        but.setTitle("添加图片", for: .normal)
+        return but
+    }()
+    lazy var imagePickerController:UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        return imagePicker
+    }()
+    lazy var screenshotBtn:UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.red
+        button.setTitle("截图去水印", for: .normal)
+        return button
+    }()
+    lazy var advancedBtn:UIButton = {
+        let button = UIButton()
+        button.backgroundColor = UIColor.red
+        button.setTitle("高级去水印", for: .normal);
+        return button
+    }()
+    //MARK:lifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK:praviteFunc
+    override func setupUI(){
+        self.view.addSubview(backGroundImageView)
+        self.view.addSubview(addPicBtn)
+        self.view.addSubview(screenshotBtn)
+        self.view.addSubview(advancedBtn)
     }
-    */
-
+    override func addConstrains(){
+        self.addPicBtn.snp.makeConstraints { (make) in
+            make.center.equalTo(self.view)
+        }
+        self.backGroundImageView.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view);
+        }
+        self.screenshotBtn.snp.makeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.left.equalTo(0)
+            make.height.equalTo(50)
+            make.width.equalTo(SCREEN_WIDTH/2)
+        }
+        self.advancedBtn.snp.makeConstraints { (make) in
+            make.bottom.equalTo(0)
+            make.right.equalTo(0)
+            make.height.equalTo(50)
+            make.width.equalTo(SCREEN_WIDTH/2)
+        }
+    }
+    override func setStyle(){
+        self.navigationController?.navigationBar.isHidden = true;
+        self.imagePickerController.delegate = self
+        self.view.backgroundColor = UIColor.white
+        backGroundImageView.contentMode = .scaleAspectFit
+        self.screenshotBtn.isHidden = true
+        self.advancedBtn.isHidden = true
+    }
+    override func eventHandling(){
+        //添加图片按钮
+        addPicBtn.rx.controlEvent(.touchUpInside).subscribe {[weak self] (event) in
+            guard let weakSelf = self else{
+                return
+            }
+            weakSelf.imagePickerController.sourceType = .photoLibrary
+            if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+                weakSelf.present(weakSelf.imagePickerController, animated: true, completion: nil)
+            }else{
+                SVProgressHUD.show(UIImage(), status: "读取相册失败");
+            }
+            }.disposed(by: disposeBag)
+        //截图按钮
+        screenshotBtn.rx.controlEvent(.touchUpInside).subscribe {[weak self] (event) in
+            guard let weakSelf = self else{
+                return
+            }
+            
+            let maxWide = SCREEN_WIDTH - weakSelf.padding*2
+            let maxHeight = SCREEN_HEIGHT - bottomHeight - 70
+            let bool = weakSelf.image.size.width/weakSelf.image.size.height < maxWide/maxHeight
+            let imageWidth = bool ? weakSelf.image.size.width*(maxHeight/weakSelf.image.size.height):maxWide
+            let imageHeight = bool ? maxHeight:weakSelf.image.size.height*(maxWide/weakSelf.image.size.width)
+            weakSelf.imageInfo.0 = imageWidth
+            weakSelf.imageInfo.1 = imageHeight
+            weakSelf.imageInfo.2 = (SCREEN_HEIGHT - bottomHeight)/2
+            UIView.animate(withDuration: 0.3, animations: {
+                weakSelf.backGroundImageView.snp.remakeConstraints({ (make) in
+                    make.centerX.equalTo(weakSelf.view)
+                    make.centerY.equalTo((SCREEN_HEIGHT - bottomHeight)/2)
+                    make.width.equalTo(imageWidth)
+                    make.height.equalTo(imageHeight)
+                })
+                weakSelf.view.layoutIfNeeded()
+            }, completion: { (bool) in
+                let vc = FXScreenShotVC()
+                vc.imageInfo = weakSelf.imageInfo
+                vc.image = weakSelf.image
+                vc.dismissBlock = { () -> Void in
+                    weakSelf.backGroundImageView.snp.remakeConstraints({ (make) in
+                        make.centerX.equalTo(weakSelf.view)
+                        make.centerY.equalTo(weakSelf.imageInfo.5)
+                        make.width.equalTo(weakSelf.imageInfo.3)
+                        make.height.equalTo(weakSelf.imageInfo.4)
+                    })
+                }
+                weakSelf.present(vc, animated: false, completion: nil)
+            })
+        }.disposed(by: disposeBag)
+        advancedBtn.rx.controlEvent(.touchUpInside).subscribe {[weak self] (event) in
+            guard let weakSelf = self else{
+                return
+            }
+            }.disposed(by: disposeBag)
+    
+    }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        
+    }
+    //MARK:UIImagePickerControllerDelegate
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let type:String = (info[UIImagePickerControllerMediaType]as!String)
+        //当选择的类型是图片
+        if type=="public.image"{
+            let img = info[UIImagePickerControllerOriginalImage] as? UIImage
+            self.backGroundImageView.image = img;
+            self.image = img!;
+            
+            let maxWide = SCREEN_WIDTH - self.padding*2
+            let maxHeight = SCREEN_HEIGHT - 50 - 50
+            let bool = self.image.size.width/self.image.size.height < maxWide/maxHeight
+            let imageWidth = bool ? self.image.size.width*(maxHeight/self.image.size.height):maxWide
+            let imageHeight = bool ? maxHeight:self.image.size.height*(maxWide/self.image.size.width)
+            imageInfo.3 = imageWidth
+            imageInfo.4 = imageHeight
+            imageInfo.5 = (SCREEN_HEIGHT - 50)/2
+            self.backGroundImageView.snp.remakeConstraints({ (make) in
+                make.centerX.equalTo(self.view)
+                make.centerY.equalTo((SCREEN_HEIGHT - 50)/2)
+                make.width.equalTo(imageWidth)
+                make.height.equalTo(imageHeight)
+            })
+            picker.dismiss(animated: true, completion: nil)
+            //重置按钮状态
+            self.addPicBtn.isHidden = true
+            self.screenshotBtn.isHidden = false
+            self.advancedBtn.isHidden = true
+        }else{
+            SVProgressHUD.show(UIImage(), status: "读取图片失败");
+        }
+    }
 }

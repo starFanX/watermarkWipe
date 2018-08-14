@@ -1,0 +1,6 @@
+module Pods_watermarkWipe {
+  umbrella header "Pods-watermarkWipe-umbrella.h"
+
+  export *
+  module * { export * }
+}

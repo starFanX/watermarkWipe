@@ -7,13 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320D4FDC212281BC0067C34F /* FXItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D4FDB212281BC0067C34F /* FXItemCell.swift */; };
 		4957CE1F211073F200DAD127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE1E211073F200DAD127 /* AppDelegate.swift */; };
-		4957CE21211073F200DAD127 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE20211073F200DAD127 /* ViewController.swift */; };
-		4957CE24211073F200DAD127 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE22211073F200DAD127 /* Main.storyboard */; };
 		4957CE26211073F400DAD127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE25211073F400DAD127 /* Assets.xcassets */; };
 		4957CE29211073F400DAD127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE27211073F400DAD127 /* LaunchScreen.storyboard */; };
 		4957CE34211073F400DAD127 /* watermarkWipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE33211073F400DAD127 /* watermarkWipeTests.swift */; };
 		4957CE3F211073F400DAD127 /* watermarkWipeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE3E211073F400DAD127 /* watermarkWipeUITests.swift */; };
+		4957CE4E2110747800DAD127 /* FXBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE4D2110747800DAD127 /* FXBaseVC.swift */; };
+		4957CE512110773E00DAD127 /* FXHomePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE502110773E00DAD127 /* FXHomePageVC.swift */; };
+		4957CE5321107A8700DAD127 /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE5221107A8700DAD127 /* podfile */; };
+		4957CE5521107FE900DAD127 /* FXMacroDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE5421107FE900DAD127 /* FXMacroDefine.swift */; };
+		4957CE572110842800DAD127 /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE562110842700DAD127 /* Podfile.lock */; };
+		4957CE5A211089D000DAD127 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE59211089D000DAD127 /* UIView+Extension.swift */; };
+		496462CE2119AF7100DAD5FD /* ObscurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496462CD2119AF7100DAD5FD /* ObscurationView.swift */; };
+		496462D42119B55F00DAD5FD /* TargetSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496462D32119B55F00DAD5FD /* TargetSizeView.swift */; };
+		4987E58C211D712700307B3C /* FXScreenShotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987E58B211D712700307B3C /* FXScreenShotVC.swift */; };
+		499106F22113225E00602FFC /* FXImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499106F12113225E00602FFC /* FXImageManager.swift */; };
+		ED9BF42EB8CDCCB8C42CD6CF /* libPods-watermarkWipe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0B9843786A5B4972E8BB12 /* libPods-watermarkWipe.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +44,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C0B9843786A5B4972E8BB12 /* libPods-watermarkWipe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-watermarkWipe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		320D4FDB212281BC0067C34F /* FXItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXItemCell.swift; sourceTree = "<group>"; };
+		4357D2802FD679A725E91369 /* Pods-watermarkWipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watermarkWipe.release.xcconfig"; path = "Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe.release.xcconfig"; sourceTree = "<group>"; };
 		4957CE1B211073F200DAD127 /* watermarkWipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watermarkWipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4957CE1E211073F200DAD127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4957CE20211073F200DAD127 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4957CE23211073F200DAD127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4957CE25211073F400DAD127 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4957CE28211073F400DAD127 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4957CE2A211073F400DAD127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +58,18 @@
 		4957CE3A211073F400DAD127 /* watermarkWipeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = watermarkWipeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4957CE3E211073F400DAD127 /* watermarkWipeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watermarkWipeUITests.swift; sourceTree = "<group>"; };
 		4957CE40211073F400DAD127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4957CE4D2110747800DAD127 /* FXBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXBaseVC.swift; sourceTree = "<group>"; };
+		4957CE502110773E00DAD127 /* FXHomePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXHomePageVC.swift; sourceTree = "<group>"; };
+		4957CE5221107A8700DAD127 /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		4957CE5421107FE900DAD127 /* FXMacroDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXMacroDefine.swift; sourceTree = "<group>"; };
+		4957CE562110842700DAD127 /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		4957CE59211089D000DAD127 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		496462CD2119AF7100DAD5FD /* ObscurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObscurationView.swift; sourceTree = "<group>"; };
+		496462D32119B55F00DAD5FD /* TargetSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetSizeView.swift; sourceTree = "<group>"; };
+		4987E58B211D712700307B3C /* FXScreenShotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXScreenShotVC.swift; sourceTree = "<group>"; };
+		499106DF21131B2100602FFC /* watermarkWipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watermarkWipe-Bridging-Header.h"; sourceTree = "<group>"; };
+		499106F12113225E00602FFC /* FXImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXImageManager.swift; sourceTree = "<group>"; };
+		6DDD914D24D254452C8879E1 /* Pods-watermarkWipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watermarkWipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED9BF42EB8CDCCB8C42CD6CF /* libPods-watermarkWipe.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,10 +101,14 @@
 		4957CE12211073F200DAD127 = {
 			isa = PBXGroup;
 			children = (
+				4957CE562110842700DAD127 /* Podfile.lock */,
+				4957CE5221107A8700DAD127 /* podfile */,
 				4957CE1D211073F200DAD127 /* watermarkWipe */,
 				4957CE32211073F400DAD127 /* watermarkWipeTests */,
 				4957CE3D211073F400DAD127 /* watermarkWipeUITests */,
 				4957CE1C211073F200DAD127 /* Products */,
+				CB5275CB44815EB5AAAABE9C /* Pods */,
+				5E02EF79354EE1B7E268360D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +125,16 @@
 		4957CE1D211073F200DAD127 /* watermarkWipe */ = {
 			isa = PBXGroup;
 			children = (
+				4987E58A211D70FE00307B3C /* screenShot */,
+				496462CC2119AF3300DAD5FD /* Obscuration */,
+				499106E32113204000602FFC /* imgManager */,
+				4957CE4F2110772500DAD127 /* homepage */,
+				4957CE4C2110740400DAD127 /* base */,
 				4957CE1E211073F200DAD127 /* AppDelegate.swift */,
-				4957CE20211073F200DAD127 /* ViewController.swift */,
-				4957CE22211073F200DAD127 /* Main.storyboard */,
 				4957CE25211073F400DAD127 /* Assets.xcassets */,
 				4957CE27211073F400DAD127 /* LaunchScreen.storyboard */,
 				4957CE2A211073F400DAD127 /* Info.plist */,
+				499106DF21131B2100602FFC /* watermarkWipe-Bridging-Header.h */,
 			);
 			path = watermarkWipe;
 			sourceTree = "<group>";
@@ -125,6 +157,83 @@
 			path = watermarkWipeUITests;
 			sourceTree = "<group>";
 		};
+		4957CE4C2110740400DAD127 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				4957CE5B211089D800DAD127 /* basevc */,
+				4957CE582110896D00DAD127 /* extension */,
+				4957CE5421107FE900DAD127 /* FXMacroDefine.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		4957CE4F2110772500DAD127 /* homepage */ = {
+			isa = PBXGroup;
+			children = (
+				4957CE502110773E00DAD127 /* FXHomePageVC.swift */,
+			);
+			path = homepage;
+			sourceTree = "<group>";
+		};
+		4957CE582110896D00DAD127 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				4957CE59211089D000DAD127 /* UIView+Extension.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		4957CE5B211089D800DAD127 /* basevc */ = {
+			isa = PBXGroup;
+			children = (
+				4957CE4D2110747800DAD127 /* FXBaseVC.swift */,
+			);
+			path = basevc;
+			sourceTree = "<group>";
+		};
+		496462CC2119AF3300DAD5FD /* Obscuration */ = {
+			isa = PBXGroup;
+			children = (
+				496462CD2119AF7100DAD5FD /* ObscurationView.swift */,
+				496462D32119B55F00DAD5FD /* TargetSizeView.swift */,
+			);
+			path = Obscuration;
+			sourceTree = "<group>";
+		};
+		4987E58A211D70FE00307B3C /* screenShot */ = {
+			isa = PBXGroup;
+			children = (
+				4987E58B211D712700307B3C /* FXScreenShotVC.swift */,
+				320D4FDB212281BC0067C34F /* FXItemCell.swift */,
+			);
+			path = screenShot;
+			sourceTree = "<group>";
+		};
+		499106E32113204000602FFC /* imgManager */ = {
+			isa = PBXGroup;
+			children = (
+				499106F12113225E00602FFC /* FXImageManager.swift */,
+			);
+			path = imgManager;
+			sourceTree = "<group>";
+		};
+		5E02EF79354EE1B7E268360D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C0B9843786A5B4972E8BB12 /* libPods-watermarkWipe.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB5275CB44815EB5AAAABE9C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DDD914D24D254452C8879E1 /* Pods-watermarkWipe.debug.xcconfig */,
+				4357D2802FD679A725E91369 /* Pods-watermarkWipe.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +241,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4957CE43211073F400DAD127 /* Build configuration list for PBXNativeTarget "watermarkWipe" */;
 			buildPhases = (
+				985E2331B3D99B9460F0C5B2 /* [CP] Check Pods Manifest.lock */,
 				4957CE17211073F200DAD127 /* Sources */,
 				4957CE18211073F200DAD127 /* Frameworks */,
 				4957CE19211073F200DAD127 /* Resources */,
+				F11144FFFFECBB71C3F8BD4C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +304,7 @@
 				TargetAttributes = {
 					4957CE1A211073F200DAD127 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					4957CE2E211073F400DAD127 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -231,7 +343,8 @@
 			files = (
 				4957CE29211073F400DAD127 /* LaunchScreen.storyboard in Resources */,
 				4957CE26211073F400DAD127 /* Assets.xcassets in Resources */,
-				4957CE24211073F200DAD127 /* Main.storyboard in Resources */,
+				4957CE572110842800DAD127 /* Podfile.lock in Resources */,
+				4957CE5321107A8700DAD127 /* podfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,13 +364,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		985E2331B3D99B9460F0C5B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-watermarkWipe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F11144FFFFECBB71C3F8BD4C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4957CE17211073F200DAD127 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4957CE21211073F200DAD127 /* ViewController.swift in Sources */,
+				320D4FDC212281BC0067C34F /* FXItemCell.swift in Sources */,
+				4957CE4E2110747800DAD127 /* FXBaseVC.swift in Sources */,
+				4957CE5521107FE900DAD127 /* FXMacroDefine.swift in Sources */,
+				4957CE512110773E00DAD127 /* FXHomePageVC.swift in Sources */,
+				4957CE5A211089D000DAD127 /* UIView+Extension.swift in Sources */,
+				496462D42119B55F00DAD5FD /* TargetSizeView.swift in Sources */,
 				4957CE1F211073F200DAD127 /* AppDelegate.swift in Sources */,
+				4987E58C211D712700307B3C /* FXScreenShotVC.swift in Sources */,
+				499106F22113225E00602FFC /* FXImageManager.swift in Sources */,
+				496462CE2119AF7100DAD5FD /* ObscurationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +453,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4957CE22211073F200DAD127 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4957CE23211073F200DAD127 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4957CE27211073F400DAD127 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -428,8 +580,10 @@
 		};
 		4957CE44211073F400DAD127 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DDD914D24D254452C8879E1 /* Pods-watermarkWipe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL4Z2NDNJ7;
 				INFOPLIST_FILE = watermarkWipe/Info.plist;
@@ -439,6 +593,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fanxing.watermarkWipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "watermarkWipe/watermarkWipe-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -446,8 +602,10 @@
 		};
 		4957CE45211073F400DAD127 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4357D2802FD679A725E91369 /* Pods-watermarkWipe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL4Z2NDNJ7;
 				INFOPLIST_FILE = watermarkWipe/Info.plist;
@@ -457,6 +615,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fanxing.watermarkWipe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "watermarkWipe/watermarkWipe-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
