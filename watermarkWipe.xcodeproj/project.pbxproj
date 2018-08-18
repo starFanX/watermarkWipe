@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32043CC32126B96D00D67032 /* GifHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32043CC22126B96D00D67032 /* GifHelper.swift */; };
+		32043CC62126CEB000D67032 /* imageMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32043CC52126CEB000D67032 /* imageMode.swift */; };
 		320D4FDC212281BC0067C34F /* FXItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320D4FDB212281BC0067C34F /* FXItemCell.swift */; };
+		32738DA8212588C50038976A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32738DA7212588C50038976A /* UIImage+Extension.swift */; };
 		4957CE1F211073F200DAD127 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957CE1E211073F200DAD127 /* AppDelegate.swift */; };
 		4957CE26211073F400DAD127 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE25211073F400DAD127 /* Assets.xcassets */; };
 		4957CE29211073F400DAD127 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4957CE27211073F400DAD127 /* LaunchScreen.storyboard */; };
@@ -22,7 +25,6 @@
 		496462CE2119AF7100DAD5FD /* ObscurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496462CD2119AF7100DAD5FD /* ObscurationView.swift */; };
 		496462D42119B55F00DAD5FD /* TargetSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496462D32119B55F00DAD5FD /* TargetSizeView.swift */; };
 		4987E58C211D712700307B3C /* FXScreenShotVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4987E58B211D712700307B3C /* FXScreenShotVC.swift */; };
-		499106F22113225E00602FFC /* FXImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499106F12113225E00602FFC /* FXImageManager.swift */; };
 		ED9BF42EB8CDCCB8C42CD6CF /* libPods-watermarkWipe.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C0B9843786A5B4972E8BB12 /* libPods-watermarkWipe.a */; };
 /* End PBXBuildFile section */
 
@@ -45,7 +47,10 @@
 
 /* Begin PBXFileReference section */
 		0C0B9843786A5B4972E8BB12 /* libPods-watermarkWipe.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-watermarkWipe.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32043CC22126B96D00D67032 /* GifHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifHelper.swift; sourceTree = "<group>"; };
+		32043CC52126CEB000D67032 /* imageMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageMode.swift; sourceTree = "<group>"; };
 		320D4FDB212281BC0067C34F /* FXItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXItemCell.swift; sourceTree = "<group>"; };
+		32738DA7212588C50038976A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4357D2802FD679A725E91369 /* Pods-watermarkWipe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watermarkWipe.release.xcconfig"; path = "Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe.release.xcconfig"; sourceTree = "<group>"; };
 		4957CE1B211073F200DAD127 /* watermarkWipe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watermarkWipe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4957CE1E211073F200DAD127 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,7 +73,6 @@
 		496462D32119B55F00DAD5FD /* TargetSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetSizeView.swift; sourceTree = "<group>"; };
 		4987E58B211D712700307B3C /* FXScreenShotVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXScreenShotVC.swift; sourceTree = "<group>"; };
 		499106DF21131B2100602FFC /* watermarkWipe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watermarkWipe-Bridging-Header.h"; sourceTree = "<group>"; };
-		499106F12113225E00602FFC /* FXImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FXImageManager.swift; sourceTree = "<group>"; };
 		6DDD914D24D254452C8879E1 /* Pods-watermarkWipe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-watermarkWipe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-watermarkWipe/Pods-watermarkWipe.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32043CC12126B95200D67032 /* gifHelper */ = {
+			isa = PBXGroup;
+			children = (
+				32043CC22126B96D00D67032 /* GifHelper.swift */,
+			);
+			path = gifHelper;
+			sourceTree = "<group>";
+		};
+		32043CC42126CE9F00D67032 /* imgModel */ = {
+			isa = PBXGroup;
+			children = (
+				32043CC52126CEB000D67032 /* imageMode.swift */,
+			);
+			path = imgModel;
+			sourceTree = "<group>";
+		};
 		4957CE12211073F200DAD127 = {
 			isa = PBXGroup;
 			children = (
@@ -125,10 +145,11 @@
 		4957CE1D211073F200DAD127 /* watermarkWipe */ = {
 			isa = PBXGroup;
 			children = (
+				32043CC42126CE9F00D67032 /* imgModel */,
 				4987E58A211D70FE00307B3C /* screenShot */,
-				496462CC2119AF3300DAD5FD /* Obscuration */,
-				499106E32113204000602FFC /* imgManager */,
+				496462CC2119AF3300DAD5FD /* obscuration */,
 				4957CE4F2110772500DAD127 /* homepage */,
+				32043CC12126B95200D67032 /* gifHelper */,
 				4957CE4C2110740400DAD127 /* base */,
 				4957CE1E211073F200DAD127 /* AppDelegate.swift */,
 				4957CE25211073F400DAD127 /* Assets.xcassets */,
@@ -179,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				4957CE59211089D000DAD127 /* UIView+Extension.swift */,
+				32738DA7212588C50038976A /* UIImage+Extension.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -191,13 +213,13 @@
 			path = basevc;
 			sourceTree = "<group>";
 		};
-		496462CC2119AF3300DAD5FD /* Obscuration */ = {
+		496462CC2119AF3300DAD5FD /* obscuration */ = {
 			isa = PBXGroup;
 			children = (
 				496462CD2119AF7100DAD5FD /* ObscurationView.swift */,
 				496462D32119B55F00DAD5FD /* TargetSizeView.swift */,
 			);
-			path = Obscuration;
+			path = obscuration;
 			sourceTree = "<group>";
 		};
 		4987E58A211D70FE00307B3C /* screenShot */ = {
@@ -207,14 +229,6 @@
 				320D4FDB212281BC0067C34F /* FXItemCell.swift */,
 			);
 			path = screenShot;
-			sourceTree = "<group>";
-		};
-		499106E32113204000602FFC /* imgManager */ = {
-			isa = PBXGroup;
-			children = (
-				499106F12113225E00602FFC /* FXImageManager.swift */,
-			);
-			path = imgManager;
 			sourceTree = "<group>";
 		};
 		5E02EF79354EE1B7E268360D /* Frameworks */ = {
@@ -409,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				320D4FDC212281BC0067C34F /* FXItemCell.swift in Sources */,
+				32043CC62126CEB000D67032 /* imageMode.swift in Sources */,
 				4957CE4E2110747800DAD127 /* FXBaseVC.swift in Sources */,
 				4957CE5521107FE900DAD127 /* FXMacroDefine.swift in Sources */,
 				4957CE512110773E00DAD127 /* FXHomePageVC.swift in Sources */,
@@ -416,7 +431,8 @@
 				496462D42119B55F00DAD5FD /* TargetSizeView.swift in Sources */,
 				4957CE1F211073F200DAD127 /* AppDelegate.swift in Sources */,
 				4987E58C211D712700307B3C /* FXScreenShotVC.swift in Sources */,
-				499106F22113225E00602FFC /* FXImageManager.swift in Sources */,
+				32043CC32126B96D00D67032 /* GifHelper.swift in Sources */,
+				32738DA8212588C50038976A /* UIImage+Extension.swift in Sources */,
 				496462CE2119AF7100DAD5FD /* ObscurationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +603,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL4Z2NDNJ7;
 				INFOPLIST_FILE = watermarkWipe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,6 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LL4Z2NDNJ7;
 				INFOPLIST_FILE = watermarkWipe/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

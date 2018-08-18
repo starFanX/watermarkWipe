@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let nav = UINavigationController.init(rootViewController: vc)
         self.window?.rootViewController = nav;
         self.window?.makeKeyAndVisible()
+        SVProgressHUD.setBackgroundColor(UIColor.black)
+        SVProgressHUD.setAnimationDuration(1)
         return true
     }
 

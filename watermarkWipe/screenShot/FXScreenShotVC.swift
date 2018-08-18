@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Photos
 typealias DismissBlock = ()-> Void
 class FXScreenShotVC: FXBaseVC,UICollectionViewDelegate,UICollectionViewDataSource{
-    let collectionViewDataSource = ["取消","截取"];
+    var myImage: imageMode = imageMode()
+    var collectionViewDataSource:[[String:String]] = [["string":"取消","imageName":"close"],["string":"截取","imageName":"scissors"]];
     lazy var backGroundImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
@@ -27,7 +29,8 @@ class FXScreenShotVC: FXBaseVC,UICollectionViewDelegate,UICollectionViewDataSour
         return collection
     }()
     var imageInfo:(CGFloat,CGFloat,CGFloat,CGFloat,CGFloat,CGFloat) = (1,1,1,1,1,1);
-    var image: UIImage = UIImage()
+    var disposeImage: UIImage?
+    var disposeImages: [UIImage] = [UIImage]()
     var dismissBlock:DismissBlock?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +46,19 @@ class FXScreenShotVC: FXBaseVC,UICollectionViewDelegate,UICollectionViewDataSour
         self.view.bringSubview(toFront: collectionView)
     }
     override func setStyle() {
-        backGroundImageView.image = self.image
+        backGroundImageView.contentMode = .scaleAspectFit
         self.view.backgroundColor = UIColor.white
         obscurationView.imageViewRect = CGRect.init(x: (SCREEN_WIDTH - self.imageInfo.0)/2, y: ((SCREEN_HEIGHT - bottomHeight)/2 - self.imageInfo.1/2), width: self.imageInfo.0, height: self.imageInfo.1)
-        obscurationView.imageSize = self.image.size
+        obscurationView.imageSize = self.myImage.image.size
         obscurationView.targetSize = CGRect.init(x: (SCREEN_WIDTH - self.imageInfo.0 + 20)/2, y: ((SCREEN_HEIGHT - bottomHeight)/2 - self.imageInfo.1/2) + 10, width: self.imageInfo.0 - 20, height: self.imageInfo.1 - 20)
         obscurationView.initializationTargetViewSize()
+        if myImage.imageType == .normal{
+            backGroundImageView.image = self.myImage.image
+        }else{
+            backGroundImageView.animationImages = self.myImage.gifImages
+            backGroundImageView.animationDuration = self.myImage.duration
+            backGroundImageView.startAnimating()
+        }
     }
     override func addConstrains() {
         backGroundImageView.snp.makeConstraints { (make) in
@@ -88,6 +98,29 @@ class FXScreenShotVC: FXBaseVC,UICollectionViewDelegate,UICollectionViewDataSour
         })
         
     }
+    func saveImageToPhotosAlbum(){
+        if myImage.imageType == .normal{
+            guard let image = disposeImage else{
+                return
+            }
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(image:didFinishSavingWithError:contextInfo:)), nil)
+        }else{
+            SVProgressHUD.show(withStatus: "正在加载")
+            GifHelper.createGifWith(disposeImages: disposeImages) { (savePath) in
+                GifHelper.saveToPhotoAlbum(doucmentStr:savePath)
+                SVProgressHUD.dismiss()
+            }
+        }
+        
+    }
+    @objc private func image(image:UIImage,didFinishSavingWithError error:NSError?,contextInfo:AnyObject?){
+        if (error != nil){
+            SVProgressHUD.show(UIImage(), status: "保存失败")
+        }else{
+            SVProgressHUD.show(UIImage(), status: "保存成功，您可以到相册中查看哦")
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,16 +135,41 @@ class FXScreenShotVC: FXBaseVC,UICollectionViewDelegate,UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FXItemCell", for: indexPath) as! FXItemCell
-        cell.label.text = collectionViewDataSource[indexPath.row]
+        cell.label.text = collectionViewDataSource[indexPath.row]["string"]
+        cell.imageView.image = UIImage.init(named: collectionViewDataSource[indexPath.row]["imageName"]!)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch collectionViewDataSource[indexPath.row] {
+        switch collectionViewDataSource[indexPath.row]["string"]! {
         case "取消":
             dismissWithAnimation()
             break
         case "截取":
-            
+            guard  obscurationView.outputRect.width > 0 || obscurationView.outputRect.height < 0 else{
+                SVProgressHUD.show(UIImage(), status: "请选择适当的区域哦")
+                return
+            }
+            if myImage.imageType == .normal{
+                //截取图片
+                self.disposeImage = UIImage.imageForImage(image: self.myImage.image, rect: obscurationView.outputRect)
+                backGroundImageView.image = self.disposeImage
+            }else{
+                //截取gif
+                for image in myImage.gifImages{
+                    disposeImages.append(UIImage.imageForImage(image: image, rect: obscurationView.outputRect))
+                }
+                backGroundImageView.stopAnimating()
+                backGroundImageView.animationImages = disposeImages
+                backGroundImageView.animationDuration = myImage.duration
+                backGroundImageView.startAnimating()
+            }
+            collectionViewDataSource.remove(at: 1)
+            collectionViewDataSource.append(["string":"保存","imageName":"save"])
+            collectionView.reloadData()
+            obscurationView.isHidden = true
+            break
+        case "保存":
+            self.saveImageToPhotosAlbum()
             break
         default:
             break

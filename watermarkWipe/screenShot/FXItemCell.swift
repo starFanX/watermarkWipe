@@ -9,9 +9,15 @@
 import UIKit
 
 class FXItemCell: UICollectionViewCell {
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     lazy var label:UILabel = {
         let label = UILabel()
         label.backgroundColor = UIColor.clear
+        label.font = UIFont.systemFont(ofSize: 14)
         label.textAlignment = .center
         return label
     }()
@@ -22,10 +28,20 @@ class FXItemCell: UICollectionViewCell {
     }
     func setupUI(){
         self.addSubview(label)
+        self.addSubview(imageView)
     }
     func addMyConstraints() {
+        imageView.snp.makeConstraints { (make) in
+            make.centerX.equalTo(self)
+            make.top.equalTo(15)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
+        }
         label.snp.makeConstraints { (make) in
-            make.edges.equalTo(self)
+            make.top.equalTo(imageView.snp.bottom)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
+            make.bottom.equalTo(0)
         }
     }
     required init?(coder aDecoder: NSCoder) {

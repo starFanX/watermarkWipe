@@ -69,6 +69,7 @@ class ObscurationView: UIView {
             weakSelf.path.append(UIBezierPath.init(rect:SCREEN_BOUNDS))
             weakSelf.path.append(UIBezierPath.init(rect: weakSelf.targetSize).reversing())
             weakSelf.shapLayer.path = weakSelf.path.cgPath
+            weakSelf.calculateRelativeRect()
         }.disposed(by: disposeBag)
         targetSizeView.targetFrameCallBack = {[weak self] (frame) -> Void in
             guard let weakSelf = self else {
@@ -76,6 +77,19 @@ class ObscurationView: UIView {
             }
             weakSelf.targetSize = frame
         }
+    }
+    func calculateRelativeRect(){
+        let x:CGFloat = targetSize.origin.x - imageViewRect.origin.x < 0 ? 0:targetSize.origin.x - imageViewRect.origin.x
+        let y:CGFloat = targetSize.origin.y - imageViewRect.origin.y < 0 ? 0:targetSize.origin.y - imageViewRect.origin.y
+        let width = targetSize.size.width - (targetSize.origin.x - imageViewRect.origin.x < 0 ? imageViewRect.origin.x - targetSize.origin.x:0) - (targetSize.origin.x + targetSize.size.width - imageViewRect.origin.x - imageViewRect.size.width > 0 ? targetSize.origin.x + targetSize.size.width - imageViewRect.origin.x - imageViewRect.size.width:0)
+        let height = targetSize.size.height - (targetSize.origin.y - imageViewRect.origin.y < 0 ? imageViewRect.origin.y - targetSize.origin.y:0) - (targetSize.origin.y + targetSize.size.height - imageViewRect.origin.y - imageViewRect.size.height > 0 ? targetSize.origin.y + targetSize.size.height - imageViewRect.origin.y - imageViewRect.size.height:0)
+        let ratio = imageSize.width/imageViewRect.size.width
+        outputRect = CGRect.init(x:x*ratio,
+                                 y:y*ratio,
+                                 width: width*ratio,
+                                 height: height*ratio)
+        
+        print("目标区域\(outputRect)")
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
